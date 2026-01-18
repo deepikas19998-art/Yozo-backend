@@ -1,9 +1,9 @@
 const foodPartnerModel = require('../models/foodpartner.model');
 const foodModel = require('../models/food.model');
 
-console.log("Received foodPartnerId:", req.params.id);
-async function getFoodPartnerById(req, res) {
 
+async function getFoodPartnerById(req, res) {
+console.log("Received foodPartnerId:", req.params.id);
     const foodPartnerId = req.params.id;
 
     const foodPartner = await foodPartnerModel.findById(foodPartnerId)
