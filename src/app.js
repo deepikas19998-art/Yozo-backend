@@ -11,7 +11,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',              
-    'https://foodreels-nk8f.vercel.app' 
+    'https://yozo-frontend.vercel.app' 
   ],
   credentials: true
 }));
