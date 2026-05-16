@@ -1,24 +1,22 @@
-require('dotenv').config();
+require("dotenv").config();
 const ImageKit = require("imagekit");
 
 const imagekit = new ImageKit({
-    publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
-    privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
-    urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT
+  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
+  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
+  urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
 });
 
+async function uploadFile(fileBuffer, fileName) {
+  const result = await imagekit.upload({
+    file: fileBuffer,   
+    fileName: fileName,
+    folder: "/reels",    
+  });
 
-async function uploadFile(file, fileName){
-    const result = await imagekit.upload({
-        file : file,
-        fileName : fileName,
-
-    })
-
-    return result;
+  return {
+  url: result.url
+};
 }
 
-module.exports = {
-    uploadFile,
-   
-}
+module.exports = { uploadFile };
